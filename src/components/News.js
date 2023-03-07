@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
 import NewsItem from './NewsItem'
 
 export class News extends Component {
