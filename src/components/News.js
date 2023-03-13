@@ -42,18 +42,18 @@ export class News extends Component {
 
     handlePrevClick = async () => {
 
+        this.updateNews();
         this.setState({
             page: this.state.page - 1
         });
-        this.updateNews();
     }
 
     handleNextClick = async () => {
 
+        this.updateNews();
             this.setState({
                 page: this.state.page + 1
             });
-            this.updateNews();
         }
 
     render() {
