@@ -25,8 +25,8 @@ export class News extends Component {
         }
     }
 
-    async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=78efd9bf075a475facb403f665cb50f1&page=1&pageSize=${this.props.pageSize}`;
+    async updateNews() {
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=78efd9bf075a475facb403f665cb50f1&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let parssedData = await data.json();
@@ -36,36 +36,26 @@ export class News extends Component {
             loading: false
         })
     }
+    async componentDidMount() {
+        this.updateNews();
+    }
 
     handlePrevClick = async () => {
 
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=78efd9bf075a475facb403f665cb50f1&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-        this.setState({ loading: true });
-        let data = await fetch(url);
-        let parssedData = await data.json();
-
         this.setState({
-            page: this.state.page - 1,
-            articles: parssedData.articles,
-            loading: false
-        })
+            page: this.state.page - 1
+        });
+        this.updateNews();
     }
 
     handleNextClick = async () => {
 
-        if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=78efd9bf075a475facb403f665cb50f1&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-            this.setState({ loading: true });
-            let data = await fetch(url);
-            let parssedData = await data.json();
-
             this.setState({
-                page: this.state.page + 1,
-                articles: parssedData.articles,
-                loading: false
-            })
+                page: this.state.page + 1
+            });
+            this.updateNews();
         }
-    }
+
     render() {
         return (
             <div className="container my-3">
