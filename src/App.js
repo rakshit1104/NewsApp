@@ -12,11 +12,9 @@ import {
 export default function App() {
 
   const [progress, setProgress] = useState(0);
-
   const progressFunction = (progress) => {
       setProgress(progress)
   }
-
     return (
       <BrowserRouter>
         <div style={{ backgroundColor: '#2b3035', color: 'white' }}>
@@ -46,4 +44,3 @@ export default function App() {
       </BrowserRouter>
     )
   }
-
