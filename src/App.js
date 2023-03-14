@@ -29,13 +29,13 @@ export default class App extends Component {
             progress={this.state.progress}
           />
           <Routes>
-            <Route exact path="/" element={<News setProgress={this.setProgress} key='general' headline='Top Headlines' pageSize={12} country='in' category='general' />} />
-            <Route exact path="/business" element={<News setProgress={this.setProgress} key='business' headline='Business Headlines' pageSize={12} country='in' category='business' />} />
-            <Route exact path="/entertainment" element={<News setProgress={this.setProgress} key='entertainment' headline='Entertainment Headlines' pageSize={12} country='in' category='entertainment' />} />
-            <Route exact path="/health" element={<News setProgress={this.setProgress} key='health' headline='Health Headlines' pageSize={12} country='in' category='health' />} />
-            <Route exact path="/science" element={<News setProgress={this.setProgress} key='science' headline='Science Headlines' pageSize={12} country='in' category='science' />} />
-            <Route exact path="/sports" element={<News setProgress={this.setProgress} key='sports' headline='Sports Headlines' pageSize={12} country='in' category='sports' />} />
-            <Route exact path="/technology" element={<News setProgress={this.setProgress} key='technology' headline='Technology Headlines' pageSize={12} country='in' category='technology' />} />
+            <Route exact path="/" element={<News api={process.env.REACT_APP_API} setProgress={this.setProgress} key='general' headline='Top Headlines' pageSize={12} country='in' category='general' />} />
+            <Route exact path="/business" element={<News api={process.env.REACT_APP_API} setProgress={this.setProgress} key='business' headline='Business Headlines' pageSize={12} country='in' category='business' />} />
+            <Route exact path="/entertainment" element={<News api={process.env.REACT_APP_API} setProgress={this.setProgress} key='entertainment' headline='Entertainment Headlines' pageSize={12} country='in' category='entertainment' />} />
+            <Route exact path="/health" element={<News api={process.env.REACT_APP_API} setProgress={this.setProgress} key='health' headline='Health Headlines' pageSize={12} country='in' category='health' />} />
+            <Route exact path="/science" element={<News api={process.env.REACT_APP_API} setProgress={this.setProgress} key='science' headline='Science Headlines' pageSize={12} country='in' category='science' />} />
+            <Route exact path="/sports" element={<News api={process.env.REACT_APP_API} setProgress={this.setProgress} key='sports' headline='Sports Headlines' pageSize={12} country='in' category='sports' />} />
+            <Route exact path="/technology" element={<News api={process.env.REACT_APP_API} setProgress={this.setProgress} key='technology' headline='Technology Headlines' pageSize={12} country='in' category='technology' />} />
           </Routes>
         </div>
       </BrowserRouter>
