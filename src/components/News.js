@@ -54,7 +54,7 @@ export default function News(props) {
     return (
         <>
             <div className="container my-3">
-                <h2>{props.headline}</h2>
+                <h2 style={{marginTop:"56px", textAlign:"center"}}>{props.headline}</h2>
                 {loading && < Spinner />}
                 <div className="row">
                     {!loading && articles.map((element) => {
